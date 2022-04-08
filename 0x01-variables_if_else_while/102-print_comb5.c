@@ -7,23 +7,18 @@
  */
 int main(void)
 {
-	int tens;
-	int ones;
+	int x;
 
-	for (tens = 0; tens <= 9; tens++)
+	for (x = 0; x <= 99; x++)
 	{
-		for (ones = 0; ones <= 9; ones++)
-			{
-				putchar(tens + '0');
-				putchar(ones + '0');
-				if (!(tens == 9 && ones == 9))
-				{
-					putchar(',');
-					putchar(' ');
-				}
-			}
+		putchar(x / 10 + '0');
+		putchar(x % 10 + '0');
+		if (x < 99)
+		{
+			putchar(',');
+			putchar(' ');
+		}
 	}
 	putchar('\n');
-
 	return (0);
 }
