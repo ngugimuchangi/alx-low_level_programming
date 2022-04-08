@@ -1,4 +1,4 @@
-nclude <stdio.h>
+#include <stdio.h>
 /**
  * main - Entry point
  * Description: Print the lowercase alphabet in reverse, followed by a new line
