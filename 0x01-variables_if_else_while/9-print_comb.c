@@ -1,11 +1,9 @@
-able File  21 lines (21 sloc)  295 Bytes
-   
 #include <stdio.h>
 /**
- *  * main - Entry point
- *   * Description:Prints all possible combinations of single-digit numbers
- *    * Return: Always 0 (Success)
- *     */
+ * main - Entry point
+ * Description:Prints all possible combinations of single-digit numbers
+ * Return: Always 0 (Success)
+ */
 int main(void)
 {
 	int i;
