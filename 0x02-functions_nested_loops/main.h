@@ -7,7 +7,8 @@
  * print_sign - check whether number is positive or negative and prints sign
  * _abs - computes absolute value of an integer
  * print_last_digit
- * jack_bauer print minutes of the day
+ * jack_bauer - prints minutes of the day
+ * times_table - prints 9 times table
  */
 int _putchar(char c);
 void print_alphabet(void);
@@ -18,3 +19,4 @@ int print_sign(int n);
 int _abs(int);
 int print_last_digit(int);
 void jack_bauer(void);
+void times_table(void);
