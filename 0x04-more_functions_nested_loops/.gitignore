@@ -18,3 +18,5 @@ _putchar.c
 8-print_square
 8-main.c
 9-fizz_buzz
+10-print_triangle
+10-main.c
