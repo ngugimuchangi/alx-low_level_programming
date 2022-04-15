@@ -1,5 +1,5 @@
 
-#0x04. C - More functions, more nested loops
+# 0x04. C - More functions, more nested loops
 
 ## Taks
 ### 0.isupper
