@@ -15,6 +15,7 @@ void puts_half(char *str)
 	{
 		s += 1;
 	}
+	s += 1;
 
 	/*check if stringsize is odd or even */
 	if (s % 2 == 0)
