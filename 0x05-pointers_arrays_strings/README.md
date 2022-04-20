@@ -2,5 +2,5 @@
 # 0x05. C - Pointers, arrays and strings
 
 ## Tasks
-0. Functions that updates variable using pointers
-
+0. Function that updates variable using pointers
+1. Function that swaps the value of two integers using pointers
