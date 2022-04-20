@@ -6,18 +6,21 @@
  */
 void puts_half(char *str)
 {
-	int i, j;
+	int i, j, s;
+	char *ptr = str;
 
 	/* find length of string */
-	i = 0;
-	while (str[i])
-		i++;
+	s = 0;
+	for (i = 0; *ptr; i++, *ptr++)
+	{
+		s += 1;
+	}
 
 	/*check if stringsize is odd or even */
-	if (i % 2 == 0)
+	if (s % 2 == 0)
 	{
-		j = i / 2;
-		while (j < i)
+		j = s / 2;
+		while (j <= s)
 		{
 			_putchar(str[j]);
 			j++;
@@ -26,8 +29,8 @@ void puts_half(char *str)
 	}
 	else
 	{
-		j = (i - 1) / 2;
-		while (j < i)
+		j = (s - 1) / 2;
+		while (j <= s)
 		{
 			_putchar(str[j]);
 			j++;
