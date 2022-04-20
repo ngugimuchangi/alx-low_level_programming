@@ -6,7 +6,7 @@
  */
 void puts_half(char *str)
 {
-	int i, j;
+	long int i, j;
 
 	/* find length of string */
 	i = 0;
