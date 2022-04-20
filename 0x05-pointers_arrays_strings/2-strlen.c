@@ -11,8 +11,11 @@ int _strlen(char *s)
 	char *ptr = s;
 	int i, size;
 
+	size = 0;
 	for (i = 0; *ptr; i++, *ptr++)
-		size = i + 1;
+	{
+		size += 1;
+	}
 
 	return (size);
 }
