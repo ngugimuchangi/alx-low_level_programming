@@ -8,3 +8,4 @@
 3. Function that prints out a string using _putchar and pointers
 4. Function that prints out string in reverse
 5. Function that reverses the order of characters in a string
+6. Function that skips one character when printing them.
