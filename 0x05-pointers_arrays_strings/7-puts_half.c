@@ -16,10 +16,10 @@ void puts_half(char *str)
 	}
 
 	/*check if stringsize is odd or even */
-	if ((i - 1) % 2 == 0)
+	if ((i % 2) == 0)
 	{
-		j = (i - 1) / 2;
-		while (j < i)
+		j = (i / 2);
+		while ((j < i) && (*str))
 		{
 			_putchar(str[j]);
 			j++;
@@ -28,8 +28,8 @@ void puts_half(char *str)
 	}
 	else
 	{
-		j = (i - 2) / 2;
-		while (j < i)
+		j = (i - 1) / 2;
+		while (j < i && *str)
 		{
 			_putchar(str[j]);
 			j++;
