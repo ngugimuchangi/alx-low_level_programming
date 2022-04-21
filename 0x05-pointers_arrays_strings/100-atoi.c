@@ -33,12 +33,7 @@ int _atoi(char *s)
 		}
 	}
 	}
-	if (res >= 0 || res < 0)
-	{
-		return (sign * res);
-	}
-	else
-	{
-		return (0);
-	}
+
+	return (sign * res);
+
 }
