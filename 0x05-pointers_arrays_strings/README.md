@@ -12,4 +12,5 @@
 7. Function that prints second half of a string
 8. Function that prints an array of numbers
 9. Function that copies string from source to destination
-10. Atoi function that converts character numbers to integers 
+10. Atoi function that converts character numbers to integers
+11. Function to generate random valid passwords for crackme program 
