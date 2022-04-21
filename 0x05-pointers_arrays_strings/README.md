@@ -10,3 +10,4 @@
 5. Function that reverses the order of characters in a string
 6. Function that skips one character when printing them
 7. Function that prints second half of a string
+8. Function that prints an array of numbers 
