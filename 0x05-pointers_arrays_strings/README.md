@@ -11,4 +11,5 @@
 6. Function that skips one character when printing them
 7. Function that prints second half of a string
 8. Function that prints an array of numbers
-9. Function that copies string from source to destination 
+9. Function that copies string from source to destination
+10. Atoi function that converts character numbers to integers 
