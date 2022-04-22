@@ -4,3 +4,4 @@
 ## Tasks
 0. Function that concatenates two strings
 1. Function that concatenates n bytes of string to another string
+2. Function that copies on string to the other

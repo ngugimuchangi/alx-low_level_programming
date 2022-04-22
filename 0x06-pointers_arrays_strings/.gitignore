@@ -2,7 +2,7 @@
 0-main.c
 1-strncat
 1-main.c
-2-strcpy
+2-strncpy
 2-main.c
 3-strcmp
 3-main.c
