@@ -1,3 +1,4 @@
+_putchar.c
 0-strcat
 0-main.c
 1-strncat
@@ -16,3 +17,5 @@
 7-main.c
 100-rot13
 100-main.c
+101-print_number
+101-main.c
