@@ -11,3 +11,5 @@
 6. Function that converts first letter of words to uppercase if separated by specific delimiters
 7. Function that encodes a string to 1337
 8. Function that encodes string using ROT13
+9. Function that prints numbers
+10. Fix code to print 98
