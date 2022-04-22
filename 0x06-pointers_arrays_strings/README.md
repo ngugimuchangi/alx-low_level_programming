@@ -2,4 +2,5 @@
 # 0x06. C - More pointers, arrays and strings
 
 ## Tasks
-0. Function that concaternates two strings
+0. Function that concatenates two strings
+1. Function that concatenates n bytes of string to another string
