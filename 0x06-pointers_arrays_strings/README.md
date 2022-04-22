@@ -8,3 +8,5 @@
 3. Function that compares two strings
 4. Function that swaps integers in an array
 5. Function that converts lowercase characters in a string to uppercase
+6. Function that converts first letter of words to uppercase if separated by specific delimiters
+7. Function that encode a string to 1337
