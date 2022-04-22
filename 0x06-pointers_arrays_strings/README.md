@@ -7,3 +7,4 @@
 2. Function that copies on string to the other
 3. Function that compares two strings
 4. Function that swaps integers in an array
+5. Function that converts lowercase characters in a string to uppercase
