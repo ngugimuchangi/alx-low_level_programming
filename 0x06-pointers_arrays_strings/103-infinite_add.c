@@ -15,40 +15,24 @@ char *infinite_add(char *n1, char *n2, char *r, int size_r)
 		i++;
 	while (n2[j])
 		j++;
-	if (i > j)
-		len = i;
-	else
-		len = j;
-	if (len + 1 > size_r)
+	len = (i > j) ? i : j;
+	if (len + 1 > size_r || len + 2 > size_r)
 		return (0);
 	r[len] = '\0';
 	for (k = len - 1; k >= 0;  k--)
 	{
 		i--;
 		j--;
-		if (i >= 0)
-			a = n1[i] - '0';
-		else
-			a = 0;
-		if (j >= 0)
-			b = n2[j] - '0';
-		else
-			b = 0;
+		a = (i >= 0) ? n1[i] - '0' : 0;
+		b = (j >= 0) ? n2[j] - '0' : 0;
 		r[k] = (a + b + rem) % 10 + '0';
 		rem = (a + b + rem) / 10;
 	}
 	if (rem == 1)
 	{
-		if ((len + 2) > size_r)
-		{
-			return (0);
-		}
-		else
-		{
-			for (m = len + 1; len >= 0; len--, m--)
-				r[m] = r[len];
-			r[0] = rem + '0';
-		}
+		for (m = len + 1; len >= 0; len--, m--)
+			r[m] = r[len];
+		r[0] = rem + '0';
 	}
 	return (r);
 }
