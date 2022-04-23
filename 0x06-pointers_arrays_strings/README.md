@@ -13,3 +13,4 @@
 8. Function that encodes string using ROT13
 9. Function that prints numbers
 10. Fix code to print 98
+11. Function that adds up number in character strings
