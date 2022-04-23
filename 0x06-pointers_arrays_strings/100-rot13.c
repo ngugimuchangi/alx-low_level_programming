@@ -20,10 +20,6 @@ char *rot13(char *str)
 				str[i] = b[j];
 				break;
 			}
-			else
-			{
-				continue;
-			}
 		}
 	}
 	return (str);
