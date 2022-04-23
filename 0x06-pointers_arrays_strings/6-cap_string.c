@@ -23,10 +23,6 @@ char *cap_string(char *str)
 				str[i] -= j;
 			}
 		}
-		else
-		{
-			continue;
-		}
 	}
 
 	return (str);
