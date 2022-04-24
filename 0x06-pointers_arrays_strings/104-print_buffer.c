@@ -23,7 +23,7 @@ void print_buffer(char *b, int size)
 			for (k = 0, n = 0; k <= 9 && m < size;)
 			{
 				for (l = 0; l < 2 && m < size; m++, k++, l++, n++)
-					(b[m] >= 0 && b[m] <= 15) ? printf("0%x", b[m]) : printf("%x", b[m]);
+				printf("%02x", b[m]);
 				printf(" ");
 			}
 			for (; n < 10; n += 2)
