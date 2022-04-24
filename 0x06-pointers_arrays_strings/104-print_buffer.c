@@ -8,7 +8,7 @@
  */
 void print_buffer(char *b, int size)
 {
-	int i = 0, j, k, l, m = 0, n;
+	int a, i = 0, j, k, l, m = 0, n;
 
 	if (size <= 0)
 	{
@@ -25,9 +25,16 @@ void print_buffer(char *b, int size)
 				for (l = 0; l < 2 && m < size; m++, k++, l++, n++)
 				printf("%02x", b[m]);
 				printf(" ");
+				a = n;
 			}
-			for (; n < 10; n += 2)
+			for (; n < 10 && a % 2 == 0;  n += 2)
 				printf("     ");
+			if (n < 10 && a % 2)
+			{
+				printf(" ");
+				for (; n < 10; n += 1)
+				printf("  ");
+			}
 			for (j = 0; j <= 9 && i < size; i++, j++)
 			(b[i] >= 0 && b[i] <= 31) ? printf(".") : printf("%c", b[i]);
 			printf("\n");
