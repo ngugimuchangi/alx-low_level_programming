@@ -14,3 +14,4 @@
 9. Function that prints numbers
 10. Fix code to print 98
 11. Function that adds up number in character strings
+12. Function that prints buffer on n bytes
