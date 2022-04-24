@@ -23,7 +23,7 @@ void print_buffer(char *b, int size)
 			for (k = 0, n = 0; k <= 9 && m < size;)
 			{
 				for (l = 0; l < 2 && m < size; m++, k++, l++, n++)
-				printf("%02x", b[m]);
+				printf("%02x", (unsigned char)b[m]);
 				printf(" ");
 				a = n;
 			}
