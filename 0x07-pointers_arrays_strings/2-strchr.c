@@ -4,8 +4,8 @@
  * _strchr - finds the first occurence of character
  * @s: string to search
  * @c: character to find
- * Return: On success - char pointer pointing to the
- * memory occurrence of c; On failure - NULL.
+ * Return: char pointer pointing to the
+ * memory occurrence of c on success, otherwise NULL.
  */
 char *_strchr(char *s, char c)
 {
@@ -14,9 +14,9 @@ char *_strchr(char *s, char c)
 	for (i = 0; *(s + i); i++)
 	{
 		if (*(s + i) == c)
-		return (s + i);
+			return (s + i);
 	}
 	if (*(s + i) == c)
-		return (0);
+		return (s + i);
 	return (0);
 }
