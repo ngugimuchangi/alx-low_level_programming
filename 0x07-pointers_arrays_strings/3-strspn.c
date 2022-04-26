@@ -20,5 +20,10 @@ unsigned int _strspn(char *s, char *accept)
 			}
 		}
 	}
+	if (*(s + j) == *(accept + i))
+	{
+		k = j + 1;
+	return ((unsigned int) k);
+	}
 	return ((unsigned int) k);
 }
