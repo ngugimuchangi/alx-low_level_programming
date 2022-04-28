@@ -16,11 +16,12 @@ int len(char *s)
  * @s: character to check
  * @min: start point
  * @max: end point
+ * @half: check half of string in case of even palindrome
  * Return: 1 if palindromic, 0 otherwise
  */
 int check(char *s, int min, int max, int half)
 {
-	if (max == min || max == half / 2)
+	if (max == min || max == half / 2 || max == 0)
 		return (1);
 	if (*(s + min) != *(s + max))
 		return (0);
@@ -34,5 +35,5 @@ int check(char *s, int min, int max, int half)
  */
 int is_palindrome(char *s)
 {
-	return (check(s, 0, len(s) - 1, len(s) -1));
+	return (check(s, 0, len(s) - 1, len(s) - 1));
 }
