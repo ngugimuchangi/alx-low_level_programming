@@ -10,11 +10,6 @@ int main(int argc, char **argv)
 {
 	int count, sum = 0;
 
-	if (argc == 1)
-	{
-		printf("%d\n", 0);
-		return (0);
-	}
 	for (count = 1; count < argc; count++)
 	{
 		if (atoi(argv[count]) == 0 || atoi(argv[count]) < 0)
