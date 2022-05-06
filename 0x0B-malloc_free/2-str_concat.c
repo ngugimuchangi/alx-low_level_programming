@@ -8,23 +8,33 @@
  */
 char *str_concat(char *s1, char *s2)
 {
-	int i, j;
+	unsigned int i, j;
 	char *ptr;
 
 	if (s1 == NULL && s2 == NULL)
 		return (NULL);
-	for (i = 0; s1[i]; i++)
-		;
-	for (j = 0; s2[j]; j++)
-		;
+	if (s1 != NULL)
+		for (i = 0; s1[i]; i++)
+			;
+	else
+		i = 0;
+	if (s2 != NULL)
+		for (j = 0; s2[j]; j++)
+			;
+	else
+		j = 0;
 	j++;
 	ptr = malloc((i + j) * sizeof(char));
 	if (ptr == NULL)
 		return (NULL);
-	for (i = 0; s1[i]; i++)
-		ptr[i] = s1[i];
-	for (j = 0; s2[j]; i++, j++)
-		ptr[i] = s2[j];
+	if (s1 != NULL)
+		for (i = 0; s1[i]; i++)
+			ptr[i] = s1[i];
+	else
+		i = 0;
+	if (s2 != NULL)
+		for (j = 0; s2[j]; i++, j++)
+			ptr[i] = s2[j];
 	ptr[i] = '\0';
 	return (ptr);
 }
