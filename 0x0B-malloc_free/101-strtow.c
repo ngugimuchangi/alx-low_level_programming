@@ -3,13 +3,14 @@
 /**
  * words_count - checks wordcount of string;
  * @str: string to check
+ * @l: string length
  * Return: wordcount on sucess
  */
-int words_count(char *str)
+int words_count(char *str, int l)
 {
 	int i, words = 0;
 
-	for (i = 0; str[i]; i++)
+	for (i = 0; i < l; i++)
 	{
 		if (str[i] != ' ')
 		{
@@ -29,19 +30,22 @@ int words_count(char *str)
 char **strtow(char *str)
 {
 	char **words_array;
-	int count_char = 0, i, idx = 0, fr_idx, j = 0, e = 0;
+	int count_word = 0, count_char = 0, i, leng, idx = 0, fr_idx, j = 0, e = 0;
 
 	if (str == NULL || *str == '\0')
 	{
 		return (NULL);
 	}
-	words_array = (char **)malloc((words_count(str) + 1) * sizeof(char *));
-	if (words_array == NULL || words_count(str) == 0)
+	for (leng = 0; str[leng] != '\0'; leng++)
+		;
+	count_word = words_count(str, leng);
+	words_array = (char **)malloc((count_word + 1) * sizeof(char *));
+	if (words_array == NULL || count_word == 0)
 	{
 		free(words_array);
 		return (NULL);
 	}
-	for (i = 0; str[i]; i++)
+	for (i = 0; i < leng; i++)
 	{
 		if (str[i] != ' ')
 		{
