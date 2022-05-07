@@ -3,6 +3,7 @@
 /**
  * words_count - checks wordcount of string;
  * @str: string to check
+ * @l: string length
  * Return: wordcount on sucess
  */
 int words_count(char *str, int l)
