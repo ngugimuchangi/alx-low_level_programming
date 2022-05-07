@@ -41,7 +41,7 @@ char **strtow(char *str)
 		free(words_array);
 		return (NULL);
 	}
-	for (i = 0; str[i] != '\0'; i++)
+	for (i = 0; str[i]; i++)
 	{
 		if (str[i] != ' ')
 		{
