@@ -3,11 +3,12 @@
 /**
  * malloc_checked - allocates memory using malloc
  * @b: memory size to allocate
- * Return: void pointer
+ * Return: void pointer on success,
+ * exit value of 98 on failure
  */
 void *malloc_checked(unsigned int b)
 {
-	void *ptr;
+	char *ptr;
 
 	ptr = malloc(b);
 	if (ptr == NULL)
