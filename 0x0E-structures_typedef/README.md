@@ -1,5 +1,8 @@
+
 # 0x0E. C - Structures, typedef
+
 ## Tasks
+
 1. Define a new type struct dog 
 2. Write a function that initialize a variable of type struct dog
 3. Write a function that prints a struct dog

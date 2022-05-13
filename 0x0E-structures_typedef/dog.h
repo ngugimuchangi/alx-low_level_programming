@@ -3,17 +3,16 @@
 
 /**
  * struct dog - consolidates attributes of dog
- * @name: dog's name
- * @owner: dog's owner
- * @age: dog's age
+ * @name: dog name
+ * @owner: dog owner
+ * @age: dog age
  */
-
 typedef struct dog
 {
 	char *name;
 	float age;
 	char *owner;
-}
+} dog_t;
 
 #endif
 
