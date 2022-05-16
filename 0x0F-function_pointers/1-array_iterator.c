@@ -1,6 +1,6 @@
 #include "function_pointers.h"
 /**
- * array-iterator - moves through array elements calling back to
+ * array_iterator - moves through array elements calling back to
  * other functions
  * @array: pointer to first element of array
  * @size: size of array
