@@ -38,7 +38,7 @@ void p_string(va_list s_args)
 
 	s = va_arg(s_args, char *);
 	if (!s)
-		s = "(nill)";
+		s = "(nil)";
 	printf("%s", s);
 }
 
