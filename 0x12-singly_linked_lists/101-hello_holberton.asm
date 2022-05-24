@@ -1,10 +1,10 @@
 	global main
 	extern printf
 
-	section.text
+	section .text
 main:
 	mov	rdi, format
-	mov	rdax, 0
+	mov	rax, 0
 	call	prinft
 	mov	rax, 0
 	ret
