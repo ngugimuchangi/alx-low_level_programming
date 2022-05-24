@@ -8,7 +8,8 @@
  */
 size_t print_list(const list_t *h)
 {
-	unsigned int i = 1, j;
+	size_t i = 1;
+	unsigned int j;
 
 	if (h->str == NULL)
 		printf("[0] (nil)\n");
