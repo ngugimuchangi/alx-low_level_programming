@@ -9,6 +9,8 @@ size_t print_list(const list_t *h)
 {
 	unsigned int i = 1, j;
 
+	if (!h)
+		return (0);
 	if (h->str)
 	{
 		printf("[%u] ", h->len);
