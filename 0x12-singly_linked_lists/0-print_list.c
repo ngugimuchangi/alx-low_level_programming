@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include <stdlib.h>
 #include "lists.h"
 /**
  * print_list - prints the data in a node withing singly linked list
@@ -9,7 +8,7 @@
 size_t print_list(const list_t *h)
 {
 	const list_t *temp;
-	size_t i;
+	unsigned int i;
 
 	temp = h;
 	for (i = 0; temp; i++)
@@ -17,7 +16,7 @@ size_t print_list(const list_t *h)
 		if (temp->str)
 			printf("[%u] [%s]\n", h->len, h->str);
 		else
-			printf("[0] (nil)\n");
+			printf("[%u] %s\n", 0, "(nil)");
 		temp = temp->next;
 	}
 	return (i);
