@@ -7,24 +7,17 @@
  */
 size_t print_list(const list_t *h)
 {
-	unsigned int i = 1, j;
+	const list_t *temp;
+	unsigned int i;
 
-	if (!h)
-		--i;
-	else
+	temp = h;
+	for (i = 0; temp; i++)
 	{
-	if (h->str)
-	{
-		printf("[%u] ", h->len);
-		for (j = 0; j < h->len; j++)
-			printf("%c", h->str[j]);
-		printf("\n");
-	}
-	else
-		printf("[%u] %s\n", 0, "(nil)");
-	if (h->next)
-		print_list(h->next);
-	++i;
+		if (temp->str)
+			printf("[%u] %s\n", temp->len, temp->str);
+		else
+			printf("[0] (nil)\n");
+		temp = temp->next;
 	}
 	return (i);
 }
