@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include "lists.h"
 /**
- * before_main - get executed before main
+ * exec_before_main - get executed before main
  * Return: nothing
  */
 
