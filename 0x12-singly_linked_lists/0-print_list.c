@@ -8,12 +8,17 @@
  */
 size_t print_list(const list_t *h)
 {
-	unsigned int i = 1;
+	unsigned int i = 1, j;
 
 	if (h->str == NULL)
 		printf("[0] (nil)\n");
 	else
-		printf("%s\n", h->str);
+	{
+		for (j = 0; j < h->len; j++)
+			printf("%c", h->str[j]);
+		printf("\n");
+	}
+
 	if (h->next != NULL)
 		print_list(h->next);
 	i++;
