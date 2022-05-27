@@ -17,4 +17,3 @@
 12. Write a function that prints a linked list
 13. Write a function that free linked list
 14. Write a function that finds the lopp in a linked list
-15. Sample
