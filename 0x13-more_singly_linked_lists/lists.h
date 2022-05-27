@@ -30,5 +30,7 @@ listint_t *reverse_listint(listint_t **head);
 size_t print_listint_safe(const listint_t *head);
 size_t free_listint_safe(listint_t **h);
 listint_t *find_listint_loop(listint_t *head);
+const listint_t **_rm(const listint_t **list, size_t size, const listint_t *ne);
+listint_t **_realloc_mem(listint_t **list, size_t size, listint_t *new_elm);
 
 #endif
