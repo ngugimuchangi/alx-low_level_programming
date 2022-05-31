@@ -8,17 +8,18 @@
  */
 unsigned int binary_to_uint(const char *b)
 {
-	int i, j, k = 1;
-	unsigned long int res = 0;
+	unsigned long int i, res = 0;
 
 	if (!b)
 		return (0);
-	for (i = 0; b[i]; i++, k *= 2)
-		if ((b[i] != '0' && b[i] != '1') || i > 63)
+	for (i = 0; b[i]; i++)
+		if (b[i] != '0' && b[i] != '1')
 			return (0);
-	for (j = 0, k /= 2; j < i; j++, k /= 2)
-		res += (b[j] - 48) * k;
-	if (res > 4294967295)
-		return (0);
-	return (res);
+	for (i = 0; b[i] != '\0'; i++)
+	{
+		res <<= 1;
+		if (b[i] == '1')
+			res += 1;
+	}
+		return (res);
 }
