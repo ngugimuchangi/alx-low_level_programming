@@ -9,7 +9,7 @@
 unsigned int binary_to_uint(const char *b)
 {
 	int i, j, k;
-	long unsigned int res = 0;
+	unsigned long int res = 0;
 
 	if (!b)
 		return (0);
@@ -18,7 +18,5 @@ unsigned int binary_to_uint(const char *b)
 			return (0);
 	for (j = 0, k /= 2; j < i; j++, k /= 2)
 		res += (b[j] - 48) * k;
-	if (res > 4294967295)
-		return (0);
 	return (res);
 }
