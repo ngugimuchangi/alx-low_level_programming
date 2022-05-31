@@ -1,0 +1,14 @@
+0-main.c
+0-binary_to_uint
+1-main.c
+1-print_binary
+2-main.c
+2-get_bit
+3-main.c
+3-set_bit
+4-main.c
+4-clear_bit
+5-main.c
+5-flip_bits
+100-main.c
+100-get_endianness
