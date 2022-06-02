@@ -42,7 +42,7 @@ int copy(char *file_from, char *buff)
 void paste(char *file_from, char *file_to)
 {
 	int fd;
-	ssize_t i, j, k;
+	ssize_t i, j, k = 1024;
 	char buff[1024];
 
 	fd = open(file_to, O_WRONLY | O_CREAT | O_TRUNC, S_IRUSR |
@@ -52,12 +52,15 @@ void paste(char *file_from, char *file_to)
 		dprintf(2, "Error: Can't write to %s\n", file_to);
 		exit(99);
 	}
-	k = copy(file_from, buff);
-	i = write(fd, buff, k);
-	if (i < 0)
+	while (k == 1024)
 	{
-		dprintf(2, "Error: Can't write to %s\n", file_to);
-		exit(99);
+		k = copy(file_from, buff);
+		i = write(fd, buff, k);
+		if (i < 0)
+		{
+			dprintf(2, "Error: Can't write to %s\n", file_to);
+			exit(99);
+		}
 	}
 	j = close(fd);
 	if (j < 0)
