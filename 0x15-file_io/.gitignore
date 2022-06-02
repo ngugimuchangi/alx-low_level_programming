@@ -1,10 +1,14 @@
-Requiescat
+# Test files
 0-main.c
 0-read_textfile
-1.main.c
+1-main.c
 1-create_file
 2-main.c
 2-append_text_to_file
 3-main.c
 3-cp
 100-elf_header
+
+# Files created or modified
+Requiescat
+hello

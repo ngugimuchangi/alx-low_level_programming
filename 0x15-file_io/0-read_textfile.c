@@ -32,7 +32,10 @@ ssize_t read_textfile(const char *filename, size_t letters)
 	j = write(STDOUT_FILENO, buff, i);
 	/* check if bytes written are as expected */
 	if (j < i)
+	{
+		free(buff);
 		return (0);
+	}
 	/* free memory */
 	free(buff);
 	return (i);
