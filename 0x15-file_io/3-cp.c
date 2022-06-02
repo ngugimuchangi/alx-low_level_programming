@@ -80,6 +80,11 @@ int main(int argc, char **argv)
 		dprintf(2, "Usage: cp file_from file_to\n");
 		exit(97);
 	}
+	if (*(argv)[1] == '\0' || *(argv)[2] == '\0')
+	{
+		dprintf(2, "Usage: cp file_from file_to\n");
+		exit(97);
+	}
 	paste(argv[1], argv[2]);
 	return (0);
 }
