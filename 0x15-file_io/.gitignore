@@ -5,7 +5,6 @@
 1-create_file
 2-main.c
 2-append_text_to_file
-3-main.c
 3-cp
 100-elf_header
 
@@ -13,3 +12,5 @@
 Requiescat
 hello
 hello2
+incitatous
+Incitatous
