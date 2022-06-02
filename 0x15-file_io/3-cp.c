@@ -18,7 +18,7 @@ int copy(char *file_from, char *buff)
 		dprintf(2, "Error: Can't read from file %s\n", file_from);
 		exit(98);
 	}
-	i = read(fd, buff, 1024);
+	i = read(fd, buff, 5000);
 	if (i < 0)
 	{
 		dprintf(2, "Error: Can't read from file %s\n", file_from);
@@ -43,7 +43,7 @@ void paste(char *file_from, char *file_to)
 {
 	int fd;
 	ssize_t i, j, k;
-	char buff[1024];
+	char buff[5000];
 
 	fd = open(file_to, O_WRONLY | O_CREAT | O_TRUNC, S_IRUSR |
 			S_IWUSR | S_IRGRP | S_IWGRP | S_IROTH);
