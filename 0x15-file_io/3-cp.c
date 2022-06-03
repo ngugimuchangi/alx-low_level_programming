@@ -11,7 +11,7 @@ void err_98(ssize_t i, char *file_from)
 {
 	if (i < 0)
 	{
-		dprintf(2, "Error: Can't read from file %s\n", file_from);
+		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", file_from);
 		exit(98);
 	}
 }
@@ -26,7 +26,7 @@ void err_99(ssize_t i, char *file_to)
 {
 	if (i < 0)
 	{
-		dprintf(2, "Error: Can't write to %s\n", file_to);
+		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", file_to);
 		exit(99);
 	}
 }
@@ -41,7 +41,7 @@ void err_100(ssize_t i, int fd)
 {
 	if (i < 0)
 	{
-		dprintf(2, "Error: Can't close fd %d\n", fd);
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd);
 		exit(100);
 	}
 }
@@ -63,6 +63,7 @@ void copy_paste(char *file_from, char *file_to)
 	fd2 = open(file_to, O_WRONLY | O_CREAT | O_TRUNC, S_IRUSR |
 			S_IWUSR | S_IRGRP | S_IWGRP | S_IROTH);
 	err_99((ssize_t) fd2, file_to);
+	/* copy 1024 bytes at a time until there is no more content to copy*/
 	while (i == 1024)
 	{
 		i = read(fd, buff, 1024);
@@ -89,7 +90,7 @@ int main(int argc, char **argv)
 {
 	if (argc != 3)
 	{
-		dprintf(2, "Usage: cp file_from file_to\n");
+		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
 		exit(97);
 	}
 	copy_paste(argv[1], argv[2]);
