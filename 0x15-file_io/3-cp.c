@@ -67,7 +67,11 @@ void copy_paste(char *file_from, char *file_to)
 	{
 		i = read(fd, buff, 1024);
 		if (i == 0)
+		{
+			dprintf(2, "Error: Can't read from file %s\n", file_from);
+			exit(98);
 			break;
+		}
 		err_98(i, file_from);
 		j = write(fd2, buff, i);
 		if (j <= 0 || j != i)
