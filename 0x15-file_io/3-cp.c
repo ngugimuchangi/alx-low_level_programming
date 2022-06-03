@@ -55,7 +55,7 @@ void err_100(ssize_t i, int fd)
 void copy_paste(char *file_from, char *file_to)
 {
 	int fd, fd2;
-	ssize_t i = 1024, j, k;
+	ssize_t i = 1024, j, k, l;
 	char buff[1024];
 
 	fd = open(file_from, O_RDONLY);
@@ -67,22 +67,15 @@ void copy_paste(char *file_from, char *file_to)
 	{
 		i = read(fd, buff, 1024);
 		if (i == 0)
-		{
-			dprintf(2, "Error: Can't read from file %s\n", file_from);
-			exit(98);
 			break;
-		}
 		err_98(i, file_from);
 		j = write(fd2, buff, i);
-		if (j <= 0 || j != i)
-		{
-			dprintf(2, "Error: Can't write to %s\n", file_to);
-			exit(99);
-		}
+		if (j != i)
+			err_99(-1, file_to);
 	}
 	k = close(fd);
-	err_100(k, fd);
-	k = close(fd2);
+	l = close(fd2);
+	err_100(l, fd);
 	err_100(k, fd2);
 }
 /**
