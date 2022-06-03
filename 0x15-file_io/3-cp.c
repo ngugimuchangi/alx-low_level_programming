@@ -59,15 +59,13 @@ void copy_paste(char *file_from, char *file_to)
 	char buff[1024];
 
 	fd = open(file_from, O_RDONLY);
-	err_98(fd, file_from);
+	err_98((ssize_t) fd, file_from);
 	fd2 = open(file_to, O_WRONLY | O_CREAT | O_TRUNC, S_IRUSR |
 			S_IWUSR | S_IRGRP | S_IWGRP | S_IROTH);
-	err_99(fd2, file_to);
+	err_99((ssize_t) fd2, file_to);
 	while (i == 1024)
 	{
 		i = read(fd, buff, 1024);
-		if (i == 0)
-			break;
 		err_98(i, file_from);
 		j = write(fd2, buff, i);
 		if (j <= 0 || j != i)
