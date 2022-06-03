@@ -70,7 +70,7 @@ void copy_paste(char *file_from, char *file_to)
 			break;
 		err_98(i, file_from);
 		j = write(fd2, buff, i);
-		if (j < 0 || j < i)
+		if (j <= 0 || j < i)
 		{
 			dprintf(2, "Error: Can't write to %s\n", file_to);
 			exit(99);
