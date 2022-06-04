@@ -39,9 +39,9 @@ void paddr(char *__buf)
 		for (i = srt; i > 23; i--)
 		{
 			if (__buf[i] >= 0)
-				printf("%x", __buf[i]);
+				printf("%2x", __buf[i]);
 			else if (__buf[i] < 0)
-				printf("%x", 256 + __buf[i]);
+				printf("%2x", 256 + __buf[i]);
 		}
 	}
 	printf("\n");
