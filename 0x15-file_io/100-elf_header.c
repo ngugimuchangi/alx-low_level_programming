@@ -30,7 +30,7 @@ void paddr(char *__buf)
 			else if (__buf[i] < 0)
 				printf("%x", 256 + __buf[i]);
 		}
-		 if (__buf[7] == 6)
+		if (__buf[7] == 6)
 			printf("00");
 	}
 	if (sys == '2')
