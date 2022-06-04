@@ -103,7 +103,7 @@ void posabi(char *__buf)
 	else if (os == 6)
 		printf("UNIX - Solaris\n");
 	else
-		printf("<unknown: %x>\n", os);
+		printf("<unknown: %2x>\n", os);
 }
 
 /**
