@@ -101,7 +101,7 @@ void posabi(char *__buf)
 	else if (os == 6)
 		printf("UNIX - Solaris\n");
 	else
-		printf("<unknown: %2x>\n", os);
+		printf("<unknown: %x>\n", os);
 }
 
 /**
@@ -198,7 +198,7 @@ int verif_elf(char *__buf)
  */
 int main(int argc, char *argv[])
 {
-	int __fd, _read;
+	int __fd, _read, _close;
 	char __buf[27];
 
 	if (argc != 2)
@@ -227,6 +227,11 @@ int main(int argc, char *argv[])
 		exit(98);
 	}
 	verif_sys(__buf);
-	close(__fd);
+	_close = close(__fd);
+	if (_close < 0)
+	{
+		dprintf(STDERR_FILENO, "Err: Cannot close file\n");
+		exit(98);
+	}
 	return (0);
 }
