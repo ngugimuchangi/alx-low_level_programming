@@ -98,6 +98,10 @@ void posabi(char *__buf)
 		printf("UNIX - System V\n");
 	else if (os == 2)
 		printf("UNIX - NetBSD\n");
+	else if (os == 3)
+		printf("UNIX - Linux\n");
+	else if (os == 4)
+		printf("UNIX - GNU\n");
 	else if (os == 6)
 		printf("UNIX - Solaris\n");
 	else
