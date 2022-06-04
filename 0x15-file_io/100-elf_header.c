@@ -198,7 +198,7 @@ int verif_elf(char *__buf)
  */
 int main(int argc, char *argv[])
 {
-	int __fd, _read, _close;
+	int __fd, _read, _seek, _close;
 	char __buf[27];
 
 	if (argc != 2)
@@ -214,7 +214,12 @@ int main(int argc, char *argv[])
 		dprintf(STDERR_FILENO, "Err: file can not be open\n");
 		exit(98);
 	}
-	lseek(__fd, 0, SEEK_SET);
+	_seek = lseek(__fd, 0, SEEK_SET);
+	if (_seek == -1)
+	{
+		dprintf(STDERR_FILENO, "Err: Cannot set cursor to specified position\n");
+		exit(98);
+	}
 	_read = read(__fd, __buf, 27);
 	if (_read == -1)
 	{
@@ -228,7 +233,7 @@ int main(int argc, char *argv[])
 	}
 	verif_sys(__buf);
 	_close = close(__fd);
-	if (_close < 0)
+	if (_close == -1)
 	{
 		dprintf(STDERR_FILENO, "Err: Cannot close file\n");
 		exit(98);
