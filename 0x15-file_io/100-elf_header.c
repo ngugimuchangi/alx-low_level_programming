@@ -206,9 +206,7 @@ int main(int argc, char *argv[])
 		dprintf(STDERR_FILENO, "Usage: elf_header elf_filename\n");
 		exit(98);
 	}
-
 	__fd = open(argv[1], O_RDONLY);
-
 	if (__fd < 0)
 	{
 		dprintf(STDERR_FILENO, "Err: file can not be open\n");
