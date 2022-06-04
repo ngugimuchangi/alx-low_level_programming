@@ -204,7 +204,7 @@ int main(int argc, char *argv[])
 	if (argc != 2)
 	{
 		dprintf(STDERR_FILENO, "Usage: elf_header elf_filename\n");
-		exit(98);
+		exit(97);
 	}
 
 	__fd = open(argv[1], O_RDONLY);
@@ -219,12 +219,12 @@ int main(int argc, char *argv[])
 	if (_read == -1)
 	{
 		dprintf(STDERR_FILENO, "Err: The file can not be read\n");
-		exit(98);
+		exit(99);
 	}
 	if (!verif_elf(__buf))
 	{
 		dprintf(STDERR_FILENO, "Err: It is not an ELF\n");
-		exit(98);
+		exit(100);
 	}
 	verif_sys(__buf);
 	close(__fd);
