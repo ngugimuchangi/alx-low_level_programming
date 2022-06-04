@@ -98,6 +98,8 @@ void posabi(char *__buf)
 		printf("UNIX - System V\n");
 	else if (os == 2)
 		printf("UNIX - NetBSD\n");
+	else if (os == 3)
+		printf("UNIX - Linux\n");
 	else if (os == 6)
 		printf("UNIX - Solaris\n");
 	else
@@ -204,7 +206,7 @@ int main(int argc, char *argv[])
 	if (argc != 2)
 	{
 		dprintf(STDERR_FILENO, "Usage: elf_header elf_filename\n");
-		exit(97);
+		exit(98);
 	}
 
 	__fd = open(argv[1], O_RDONLY);
@@ -219,12 +221,12 @@ int main(int argc, char *argv[])
 	if (_read == -1)
 	{
 		dprintf(STDERR_FILENO, "Err: The file can not be read\n");
-		exit(99);
+		exit(98);
 	}
 	if (!verif_elf(__buf))
 	{
 		dprintf(STDERR_FILENO, "Err: It is not an ELF\n");
-		exit(100);
+		exit(98);
 	}
 	verif_sys(__buf);
 	close(__fd);
