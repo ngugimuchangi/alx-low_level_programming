@@ -209,37 +209,37 @@ int main(int argc, char *argv[])
 
 	if (argc != 2)
 	{
-		dprintf(STDERR_FILENO, "Usage: elf_header elf_filename\n");
+		dprintf(2, "Usage: elf_header elf_filename\n");
 		exit(98);
 	}
 	__fd = open(argv[1], O_RDONLY);
 	if (__fd < 0)
 	{
-		dprintf(STDERR_FILENO, "Err: file can not be open\n");
+		dprintf(2, "Err: file can not be open\n");
 		exit(98);
 	}
 	_seek = lseek(__fd, 0, SEEK_SET);
 	if (_seek == -1)
 	{
-		dprintf(STDERR_FILENO, "Err: Cannot set cursor to specified position\n");
+		dprintf(2, "Err: Cannot set cursor to specified position\n");
 		exit(98);
 	}
 	_read = read(__fd, __buf, 27);
 	if (_read == -1)
 	{
-		dprintf(STDERR_FILENO, "Err: The file can not be read\n");
+		dprintf(2, "Err: The file can not be read\n");
 		exit(98);
 	}
 	if (!verif_elf(__buf))
 	{
-		dprintf(STDERR_FILENO, "Err: It is not an ELF\n");
+		dprintf(2, "Err: It is not an ELF\n");
 		exit(98);
 	}
 	verif_sys(__buf);
 	_close = close(__fd);
 	if (_close == -1)
 	{
-		dprintf(STDERR_FILENO, "Err: Cannot close file\n");
+		dprintf(2, "Err: Cannot close file\n");
 		exit(98);
 	}
 	return (0);
