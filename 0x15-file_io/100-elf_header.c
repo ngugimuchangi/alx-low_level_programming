@@ -166,7 +166,10 @@ void verif_sys(char *__buf)
 	char sys = __buf[4] + '0';
 
 	if (sys == '0')
+	{
+		dprintf(2, "Err: Invalid ELF Class\n");
 		exit(98);
+	}
 	printf("ELF Header:\n");
 		pmagic(__buf);
 	if (sys == '1')
@@ -232,7 +235,7 @@ int main(int argc, char *argv[])
 	}
 	if (!verif_elf(__buf))
 	{
-		dprintf(2, "Err: It is not an ELF\n");
+		dprintf(2, "Err: It is not an ELF file\n");
 		exit(98);
 	}
 	verif_sys(__buf);
