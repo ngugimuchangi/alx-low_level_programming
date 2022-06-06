@@ -79,7 +79,7 @@ void ptype(char *__buf)
 			printf("CORE (Core file)\n");
 			break;
 		default:
-			printf("<unknown>: %x\n", _type);
+			printf("<unknown: %x>\n", _type);
 			break;
 	}
 }
@@ -127,7 +127,7 @@ void posabi(char *__buf)
 	else if (os == 16)
 		printf("FenixOS\n");
 	else
-		printf("<unknown>: %x\n", os);
+		printf("<unknown: %x>\n", os);
 }
 
 /**
