@@ -106,6 +106,26 @@ void posabi(char *__buf)
 		printf("UNIX - GNU\n");
 	else if (os == 6)
 		printf("UNIX - Solaris\n");
+	else if (os == 7)
+		printf("UNIX - AIX\n");
+	else if (os == 8)
+		printf("UNIX - IRIX\n");
+	else if (os == 9)
+		printf("UNIX - FreeBSD\n");
+	else if (os == 10)
+		printf("UNIX - TRU64\n");
+	else if (os == 11)
+		printf("Novell - Modestor\n");
+	else if (os == 12)
+		printf("UNIX - OpenBSD\n");
+	else if (os == 13)
+		printf("UNIX - OpenVMS\n");
+	else if (os == 14)
+		printf("HP - Non-Stop Kernel\n");
+	else if (os == 15)
+		printf("AROS\n");
+	else if (os == 16)
+		printf("FenixOS\n");
 	else
 		printf("<unknown: %x>\n", os);
 }
