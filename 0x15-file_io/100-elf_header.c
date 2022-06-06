@@ -144,7 +144,7 @@ void pver(char *__buf)
 	if (ver == EV_CURRENT)
 		printf(" (current)");
 	if (ver == EV_NONE)
-		printf(" <unknown>");
+		printf(" (unknown)");
 	printf("\n");
 }
 /**
