@@ -35,13 +35,13 @@ void paddr(char *__buf)
 	}
 	if (sys == '2')
 	{
-		srt = 26;
+		srt = 25;
 		for (i = srt; i > 23; i--)
 		{
 			if (__buf[i] >= 0)
-				printf("%02x", __buf[i]);
+				printf("%x", __buf[i]);
 			else if (__buf[i] < 0)
-				printf("%02x", 256 + __buf[i]);
+				printf("%x", 256 + __buf[i]);
 		}
 	}
 	printf("\n");
@@ -126,10 +126,6 @@ void posabi(char *__buf)
 		printf("AROS\n");
 	else if (os == 16)
 		printf("FenixOS\n");
-	else if (os == 17)
-		printf("Nuxi CloudABI\n");
-	else if (os == 18)
-		printf("Stratus Technologies OpenVOS\n");
 	else
 		printf("<unknown: %x>\n", os);
 }
