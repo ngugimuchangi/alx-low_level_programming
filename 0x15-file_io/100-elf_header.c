@@ -188,14 +188,15 @@ void verif_sys(char *__buf)
 	 */
 	printf("ELF Header:\n");
 		pmagic(__buf);
+	printf("  Class:                             ");
 	if (sys == '0')
-		printf("  Class:                             none\n");
+		printf("none\n");
 	else if (sys == '1')
-		printf("  Class:                             ELF32\n");
+		printf("ELF32\n");
 	else if (sys == '2')
-		printf("  Class:                             ELF64\n");
+		printf("ELF64\n");
 	else
-		printf("  Class:                             <unknown: %x>\n", __buf[4] + '0');
+		printf("<unknown: %x>\n", __buf[4] + '0');
 	pdata(__buf);
 	pver(__buf);
 	posabi(__buf);
