@@ -64,7 +64,7 @@ void ptype(char *__buf)
 	switch (_type)
 	{
 		case 0:
-			printf("NONE (No file type)\n");
+			printf("NONE (None)\n");
 			break;
 		case 1:
 			printf("REL (Relocatable file)\n");
@@ -96,6 +96,8 @@ void posabi(char *__buf)
 	printf("  OS/ABI:                            ");
 	if (os == 0)
 		printf("UNIX - System V\n");
+	else if (os == 1)
+		printf("UNIX - HP-UX\n");
 	else if (os == 2)
 		printf("UNIX - NetBSD\n");
 	else if (os == 3)
@@ -122,7 +124,7 @@ void pver(char *__buf)
 	if (ver == EV_CURRENT)
 		printf(" (current)");
 	if (ver == EV_NONE)
-		printf(" (invalid)");
+		printf(" <unknown>");
 	printf("\n");
 }
 /**
@@ -134,11 +136,13 @@ void pdata(char *__buf)
 {
 	char dt = __buf[5];
 
-	printf("  Data:                              2's complement");
+	printf("  Data:                              ");
+	if (dt == 0)
+		printf("none");
 	if (dt == 1)
-		printf(", little endian\n");
+		printf("2's complement, little endian\n");
 	if (dt == 2)
-		printf(", big endian\n");
+		printf("2's complement, big endian\n");
 }
 /**
  * pmagic - prints magic info.
@@ -165,13 +169,17 @@ void verif_sys(char *__buf)
 {
 	char sys = __buf[4] + '0';
 
-	if (sys == '0')
-	{
-		dprintf(2, "Err: Invalid ELF Class\n");
-		exit(98);
-	}
+	/**
+	 * if (sys == '0')
+	 * {
+	 * dprintf(STDERR_FILENO, "Err: Invalid ELF Class\n");
+	 * exit(98);
+	 * }
+	 */
 	printf("ELF Header:\n");
 		pmagic(__buf);
+	if (sys == '0')
+		printf("  Class:                             none\n");
 	if (sys == '1')
 		printf("  Class:                             ELF32\n");
 	if (sys == '2')
@@ -212,37 +220,37 @@ int main(int argc, char *argv[])
 
 	if (argc != 2)
 	{
-		dprintf(2, "Usage: elf_header elf_filename\n");
+		dprintf(STDERR_FILENO, "Usage: elf_header elf_filename\n");
 		exit(98);
 	}
 	__fd = open(argv[1], O_RDONLY);
 	if (__fd < 0)
 	{
-		dprintf(2, "Err: file can not be open\n");
+		dprintf(STDERR_FILENO, "Err: file can not be open\n");
 		exit(98);
 	}
 	_seek = lseek(__fd, 0, SEEK_SET);
 	if (_seek == -1)
 	{
-		dprintf(2, "Err: Cannot set cursor to specified position\n");
+		dprintf(STDERR_FILENO, "Err: Cannot set cursor to specified position\n");
 		exit(98);
 	}
 	_read = read(__fd, __buf, 27);
 	if (_read == -1)
 	{
-		dprintf(2, "Err: The file can not be read\n");
+		dprintf(STDERR_FILENO, "Err: The file can not be read\n");
 		exit(98);
 	}
 	if (!verif_elf(__buf))
 	{
-		dprintf(2, "Err: It is not an ELF file\n");
+		dprintf(STDERR_FILENO, "Err: It is not an ELF file\n");
 		exit(98);
 	}
 	verif_sys(__buf);
 	_close = close(__fd);
 	if (_close == -1)
 	{
-		dprintf(2, "Err: Cannot close file\n");
+		dprintf(STDERR_FILENO, "Err: Cannot close file\n");
 		exit(98);
 	}
 	return (0);
