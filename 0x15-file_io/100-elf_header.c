@@ -39,9 +39,9 @@ void paddr(char *__buf)
 		for (i = srt; i > 23; i--)
 		{
 			if (__buf[i] >= 0)
-				printf("%02x", __buf[i]);
+				printf("%1x", __buf[i]);
 			else if (__buf[i] < 0)
-				printf("%02x", 256 + __buf[i]);
+				printf("%1x", 256 + __buf[i]);
 		}
 	}
 	printf("\n");
@@ -149,10 +149,12 @@ void pdata(char *__buf)
 	printf("  Data:                              ");
 	if (dt == 0)
 		printf("none");
-	if (dt == 1)
+	else if (dt == 1)
 		printf("2's complement, little endian\n");
-	if (dt == 2)
+	else if (dt == 2)
 		printf("2's complement, big endian\n");
+	else
+		printf("<unknown: %x>\n", __buf[5]);
 }
 /**
  * pmagic - prints magic info.
