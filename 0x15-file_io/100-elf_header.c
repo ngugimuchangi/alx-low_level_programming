@@ -35,7 +35,7 @@ void paddr(char *__buf)
 	}
 	if (sys == '2')
 	{
-		srt = 25;
+		srt = 26;
 		for (i = srt; i > 23; i--)
 		{
 			if (__buf[i] >= 0)
