@@ -39,9 +39,9 @@ void paddr(char *__buf)
 		for (i = srt; i > 23; i--)
 		{
 			if (__buf[i] >= 0)
-				printf("%1x", __buf[i]);
+				printf("%02x", __buf[i]);
 			else if (__buf[i] < 0)
-				printf("%1x", 256 + __buf[i]);
+				printf("%02x", 256 + __buf[i]);
 		}
 	}
 	printf("\n");
@@ -198,7 +198,7 @@ void verif_sys(char *__buf)
 	else if (sys == '2')
 		printf("ELF64\n");
 	else
-		printf("<unknown: %x>\n", __buf[4] + '0');
+		printf("<unknown: %x>\n", __buf[4]);
 	pdata(__buf);
 	pver(__buf);
 	posabi(__buf);
