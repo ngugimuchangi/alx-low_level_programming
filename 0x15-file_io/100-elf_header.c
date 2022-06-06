@@ -126,6 +126,10 @@ void posabi(char *__buf)
 		printf("AROS\n");
 	else if (os == 16)
 		printf("FenixOS\n");
+	else if (os == 17)
+		printf("Nuxi CloudABI\n");
+	else if (os == 18)
+		printf("Stratus Technologies OpenVOS\n");
 	else
 		printf("<unknown: %x>\n", os);
 }
