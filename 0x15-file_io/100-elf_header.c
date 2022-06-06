@@ -91,41 +91,33 @@ void ptype(char *__buf)
  */
 void posabi(char *__buf)
 {
-	char os = __buf[7];
+	unsigned char os = __buf[7];
 
 	printf("  OS/ABI:                            ");
-	if (os == 0)
+	if (os == ELFOSABI_NONE)
 		printf("UNIX - System V\n");
-	else if (os == 1)
+	else if (os == ELFOSABI_HPUX)
 		printf("UNIX - HP-UX\n");
-	else if (os == 2)
+	else if (os == ELFOSABI_NETBSD)
 		printf("UNIX - NetBSD\n");
-	else if (os == 3)
+	else if (os == ELFOSABI_LINUX)
 		printf("UNIX - Linux\n");
-	else if (os == 4)
+	else if (os == ELFOSABI_GNU)
 		printf("UNIX - GNU\n");
-	else if (os == 6)
+	else if (os == ELFOSABI_SOLARIS)
 		printf("UNIX - Solaris\n");
-	else if (os == 7)
+	else if (os == ELFOSABI_AIX)
 		printf("UNIX - AIX\n");
-	else if (os == 8)
+	else if (os == ELFOSABI_IRIX)
 		printf("UNIX - IRIX\n");
-	else if (os == 9)
+	else if (os == ELFOSABI_FREEBSD)
 		printf("UNIX - FreeBSD\n");
-	else if (os == 10)
+	else if (os == ELFOSABI_TRU64)
 		printf("UNIX - TRU64\n");
-	else if (os == 11)
-		printf("Novell - Modestor\n");
-	else if (os == 12)
-		printf("UNIX - OpenBSD\n");
-	else if (os == 13)
-		printf("UNIX - OpenVMS\n");
-	else if (os == 14)
-		printf("HP - Non-Stop Kernel\n");
-	else if (os == 15)
-		printf("AROS\n");
-	else if (os == 16)
-		printf("FenixOS\n");
+	else if (os == ELFOSABI_ARM)
+		printf("ARM\n");
+	else if (os == ELFOSABI_STANDALONE)
+		printf("Standalone App\n");
 	else
 		printf("<unknown: %x>\n", os);
 }
@@ -143,8 +135,6 @@ void pver(char *__buf)
 
 	if (ver == EV_CURRENT)
 		printf(" (current)");
-	if (ver == EV_NONE)
-		printf(" (unknown)");
 	printf("\n");
 }
 /**
@@ -200,10 +190,12 @@ void verif_sys(char *__buf)
 		pmagic(__buf);
 	if (sys == '0')
 		printf("  Class:                             none\n");
-	if (sys == '1')
+	else if (sys == '1')
 		printf("  Class:                             ELF32\n");
-	if (sys == '2')
+	else if (sys == '2')
 		printf("  Class:                             ELF64\n");
+	else
+		printf("  Class:                             <unknown: %x>\n", __buf[4] + '0');
 	pdata(__buf);
 	pver(__buf);
 	posabi(__buf);
