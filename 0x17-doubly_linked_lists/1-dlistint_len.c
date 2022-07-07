@@ -1,4 +1,3 @@
-#include <stddef.h>
 #include "lists.h"
 /**
  * dlistint_len - determines number of elements in dlistint_t
