@@ -35,13 +35,6 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 		back = next;
 		next = next->next;
 	}
-	if (flag == idx)
-	{
-		new->prev = back;
-		if (back)
-			back->next = new;
-		return (new);
-	}
 	free(new);
 	return (NULL);
 }
