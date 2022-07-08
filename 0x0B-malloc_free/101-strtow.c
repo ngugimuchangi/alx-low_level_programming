@@ -32,9 +32,7 @@ char **strtow(char *str)
 	int count_word = 0, count_char = 0, i, leng, idx = 0, fr_idx, j = 0, e = 0;
 
 	if (str == NULL || *str == '\0')
-	{
 		return (NULL);
-	}
 	for (leng = 0; str[leng] != '\0'; leng++)
 		;
 	count_word = words_count(str, leng);
