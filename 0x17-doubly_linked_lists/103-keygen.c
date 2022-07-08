@@ -79,6 +79,7 @@ int main(int ac, char *av[])
 	char h[] = "A-CHRDw87lNS0E9B2TibgpnMVys5XzvtOGJcYLU+4mjW6fxqZeF3Qa1rPhdKIouk";
 	char key[7];
 	int pl, res;
+
 	if (ac != 2)
 		return (-1);
 	p = av[1];
