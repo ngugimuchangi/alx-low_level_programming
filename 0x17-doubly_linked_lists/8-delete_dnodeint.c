@@ -12,13 +12,10 @@ int delete_dnodeint_at_index(dlistint_t **head, unsigned int index)
 	unsigned int flag;
 	dlistint_t *back = NULL, *current = *head, *forward;
 
-	if (!current)
-		return (-1);
-	forward = current->next;
+	if (current)
+		forward = current->next;
 	for (flag = 0; current; flag++)
 	{
-		if (flag > index)
-			break;
 		if (flag == index)
 		{
 			free(current);
