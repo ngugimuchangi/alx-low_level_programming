@@ -39,4 +39,5 @@ _putchar.o
 9-strcpy.o
 100-atoi.c
 100-atoi.o
+liball.so
 len
