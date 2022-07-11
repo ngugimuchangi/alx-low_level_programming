@@ -40,4 +40,7 @@ _putchar.o
 100-atoi.c
 100-atoi.o
 liball.so
+100-operations.c
+100-operations.o
+100-tests.py
 len
