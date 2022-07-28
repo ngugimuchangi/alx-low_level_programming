@@ -19,18 +19,14 @@ void add_node(hash_node_t **head, const char *key, const char *value)
 	new = malloc(sizeof(hash_node_t));
 	if (!new)
 		exit(0);
-
 	new->key = strdup(key);
 	if (!new->key)
 		exit(0);
-
 	new->value = strdup(value);
-
 	if (temp)
 		new->next = temp;
 	else
 		new->next = NULL;
-
 	*head = new;
 }
 
@@ -46,9 +42,9 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
 	unsigned long int index;
 
-	if (!key || strcmp(key, "") == 0)
+	if (!ht || !value)
 		return (0);
-	if (!ht)
+	if (!key || strcmp(key, "") == 0)
 		return (0);
 	index = key_index((const unsigned char *)key, ht->size);
 	add_node(&(ht->array[index]), key, value);
