@@ -22,7 +22,7 @@ void hash_table_print(const hash_table_t *ht)
 	for (index = 0; index < ht->size; index++)
 		for (temp = ht->array[index]; temp; temp = temp->next)
 		{
-			printf("%s'%s' : '%s'", del, temp->key, temp->value);
+			printf("%s'%s': '%s'", del, temp->key, temp->value);
 			del = ", ";
 		}
 	printf("}\n");
