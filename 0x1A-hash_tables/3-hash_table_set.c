@@ -14,7 +14,7 @@
  */
 void add_node(hash_node_t **head, const char *key, const char *value)
 {
-	hash_node_t *new, *temp = *head;
+	hash_node_t *new = NULL, *temp = *head;
 
 	new = malloc(sizeof(hash_node_t));
 	if (!new)
@@ -43,7 +43,7 @@ void add_node(hash_node_t **head, const char *key, const char *value)
 int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
 	unsigned long int index;
-	hash_node_t *temp;
+	hash_node_t *temp = NULL;
 
 	if (!ht || !key || *key == '\0' || !value)
 		return (0);

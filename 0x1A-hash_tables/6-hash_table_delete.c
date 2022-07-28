@@ -13,6 +13,8 @@ void free_list(hash_node_t *head)
 	while (temp)
 	{
 		head = temp->next;
+		free(temp->key);
+		free(temp->value);
 		free(temp);
 		temp = head;
 	}
@@ -26,12 +28,13 @@ void free_list(hash_node_t *head)
  */
 void hash_table_delete(hash_table_t *ht)
 {
-	unsigned long int index = 0;
+	unsigned long int index;
 
 	if (!ht)
 		return;
-	for (; index < ht->size; index++)
+	for (index = 0; index < ht->size; index++)
 		if (ht->array[index])
 			free_list(ht->array[index]);
+	free(ht->array);
 	free(ht);
 }
