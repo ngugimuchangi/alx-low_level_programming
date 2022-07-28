@@ -23,6 +23,8 @@ void add_node(hash_node_t **head, const char *key, const char *value)
 	if (!new->key)
 		exit(0);
 	new->value = strdup(value);
+	if (!new->value)
+		exit(0);
 	if (temp)
 		new->next = temp;
 	else
@@ -41,12 +43,18 @@ void add_node(hash_node_t **head, const char *key, const char *value)
 int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
 	unsigned long int index;
+	hash_node_t *temp;
 
-	if (!ht)
-		return (0);
-	if (!key || (strcmp(key, "") == 0))
+	if (!ht || !key || *key == '\0' || !value)
 		return (0);
 	index = key_index((const unsigned char *)key, ht->size);
-	add_node(&(ht->array[index]), key, value);
+	for (temp = ht->array[index]; temp; temp = temp->next)
+		if (strcmp(temp->key, key) == 0)
+		{
+			temp->value = (char *)value;
+			break;
+		}
+	if (!temp)
+		add_node(&(ht->array[index]), key, value);
 	return (1);
 }
