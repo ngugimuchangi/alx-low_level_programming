@@ -25,8 +25,6 @@ void add_node(hash_node_t **head, const char *key, const char *value)
 		exit(0);
 
 	new->value = strdup(value);
-	if (!new->value)
-		exit(0);
 
 	if (temp)
 		new->next = temp;
