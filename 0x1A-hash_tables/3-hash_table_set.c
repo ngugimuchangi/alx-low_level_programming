@@ -51,7 +51,7 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	if (!key || strcmp(key, "") == 0)
 		return (0);
 	if (!ht)
-		ht = hash_table_create(1);
+		return (0);
 	index = key_index((const unsigned char *)key, ht->size);
 	add_node(&(ht->array[index]), key, value);
 	return (1);
