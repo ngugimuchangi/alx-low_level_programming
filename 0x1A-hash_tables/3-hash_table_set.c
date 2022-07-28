@@ -12,9 +12,9 @@
  *
  * Return: nothing
  */
-void add_node(hash_node_t *head, const char *key, const char *value)
+void add_node(hash_node_t **head, const char *key, const char *value)
 {
-	hash_node_t *new, *temp = head;
+	hash_node_t *new, *temp = *head;
 
 	new = malloc(sizeof(hash_node_t));
 	if (!new)
@@ -33,7 +33,7 @@ void add_node(hash_node_t *head, const char *key, const char *value)
 	else
 		new->next = NULL;
 
-	head = new;
+	*head = new;
 }
 
 /**
@@ -53,6 +53,6 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	if (!ht)
 		ht = hash_table_create(1);
 	index = key_index((const unsigned char *)key, ht->size);
-	add_node(ht->array[index], key, value);
+	add_node(&(ht->array[index]), key, value);
 	return (1);
 }
