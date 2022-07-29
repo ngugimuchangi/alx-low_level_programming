@@ -51,10 +51,10 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	for (temp = ht->array[index]; temp; temp = temp->next)
 		if (strcmp(temp->key, key) == 0)
 		{
+			free(temp->value);
 			temp->value = strdup(value);
-			break;
+			return (1);
 		}
-	if (!temp)
-		add_node(&(ht->array[index]), key, value);
+	add_node(&(ht->array[index]), key, value);
 	return (1);
 }
