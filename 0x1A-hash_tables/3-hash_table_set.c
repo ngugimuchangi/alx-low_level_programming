@@ -51,7 +51,7 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	for (temp = ht->array[index]; temp; temp = temp->next)
 		if (strcmp(temp->key, key) == 0)
 		{
-			temp->value = (char *)value;
+			temp->value = strdup(value);
 			break;
 		}
 	if (!temp)

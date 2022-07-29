@@ -30,11 +30,12 @@ void hash_table_delete(hash_table_t *ht)
 {
 	unsigned long int index;
 
-	if (!ht)
-		return;
-	for (index = 0; index < ht->size; index++)
-		if (ht->array[index])
-			free_list(ht->array[index]);
-	free(ht->array);
-	free(ht);
+	if (ht)
+	{
+		for (index = 0; index < ht->size; index++)
+			if (ht->array[index])
+				free_list(ht->array[index]);
+		free(ht->array);
+		free(ht);
+	}
 }
