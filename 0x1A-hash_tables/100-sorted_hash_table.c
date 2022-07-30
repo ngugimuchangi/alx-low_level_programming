@@ -127,27 +127,19 @@ void sort_table(shash_table_t *ht, unsigned long int index)
 int shash_table_set(shash_table_t *ht, const char *key, const char *value)
 {
 	unsigned long int index;
-	shash_node_t *temp;
 
-	if (!ht || !value || !key || *key == '\0')
+	if (!ht || !value || !key || strlen(key) != 1)
 		return (0);
 	index = key_index((const unsigned char *)key, ht->size);
 
 	if (ht->array[index])
 	{
-		temp = ht->array[index];
-		while (temp)
-		{
-			if (strcmp(temp->key, key) == 0)
-			{
-				free(ht->array[index]->value);
-				ht->array[index]->value = strdup(value);
-				if (!ht->array[index]->value)
-					return (0);
-				return (1);
-			}
-			temp = temp->next;
-		}
+		free(ht->array[index]->value);
+		ht->array[index]->value = strdup(value);
+		if (!ht->array[index]->value)
+			return (0);
+		return (1);
+		
 	}
 
 	add_node(&(ht->array[index]), key, value);
@@ -177,17 +169,14 @@ char *shash_table_get(const shash_table_t *ht, const char *key)
 	unsigned long int index;
 	shash_node_t *temp;
 
-	if (!ht || !key || *key == '\0')
+	if (!ht || !key || strlen(key) != 1)
 		return (NULL);
 	index = key_index((const unsigned char *) key, ht->size);
 	temp = ht->array[index];
 
-	while (temp)
-	{
+	if(temp)
 		if (strcmp(temp->key, key) == 0)
 			return (temp->value);
-		temp = temp->next;
-	}
 	return (NULL);
 }
 
