@@ -131,6 +131,14 @@ int shash_table_set(shash_table_t *ht, const char *key, const char *value)
 	if (!ht || !value || !key || *key == '\0')
 		return (0);
 	index = key_index((const unsigned char *)key, ht->size);
+	if (ht->array[index])
+	{
+		free(ht->array[index]->value);
+		ht->array[index]->value = strdup(value);
+		if (!ht->array[index]->value)
+			return (0);
+		return (1);
+	}
 	add_node(&(ht->array[index]), key, value);
 	if (!ht->shead && !ht->stail)
 	{
