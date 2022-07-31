@@ -7,3 +7,4 @@
 4. Hash table retrieve function
 5. Hash table print function
 6. Hash table delete function
+7. Sorted hash table
