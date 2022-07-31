@@ -26,6 +26,64 @@ shash_table_t *shash_table_create(unsigned long int size)
 	}
 	return (ht);
 }
+
+/**
+ * shash_table_set - adds or updates an element in hash table
+ * @ht: hash table to sort
+ * @key: element's key
+ * @value: element's value
+ *
+ * Return: 1 on success, 0 on failure
+ */
+int shash_table_set(shash_table_t *ht, const char *key, const char *value)
+{
+	unsigned long int index;
+	shash_node_t *new;
+
+	if (!ht || !value || !key || *key == '\0')
+		return (0);
+	index = key_index((const unsigned char *)key, ht->size);
+	if (update_key(&(ht->array[index]), key, value))
+		return (1);
+	new = add_node(&(ht->array[index]), key, value);
+
+	if (!ht->shead && !ht->stail)
+	{
+		ht->shead = ht->array[index];
+		ht->stail = ht->array[index];
+	}
+	else
+	{
+		sort_table(ht, new);
+	}
+	return (1);
+}
+
+/**
+ * update_key - check if key exists and updated its value
+ * @index: index to check for key;
+ * @key: key to check for
+ * @value: associated with key
+ *
+ * Return: 1 on success, 0 on failure
+ */
+int update_key(shash_node_t **index, const char *key, const char *value)
+{
+	shash_node_t *temp = *index;
+
+	while (temp)
+	{
+		if (strcmp(temp->key, key) == 0)
+		{
+			free(temp->value);
+			temp->value = strdup(value);
+			return (1);
+		}
+		temp = temp->next;
+	}
+	return (0);
+}
+
 /**
  * add_node - adds a new node at a specific index in a hash table
  * @head: head of linked list at specified index in a hash table
@@ -105,63 +163,6 @@ void sort_table(shash_table_t *ht, shash_node_t *new)
 			return;
 		}
 	}
-}
-
-/**
- * update_key - check if key exists and updated is value
- * @index: index to check for key;
- * @key: key to check for
- * @value: associated with key
- *
- * Return: 1 on success, 0 on failure
- */
-int update_key(shash_node_t **index, const char *key, const char *value)
-{
-	shash_node_t *temp = *index;
-
-	while (temp)
-	{
-		if (strcmp(temp->key, key) == 0)
-		{
-			free(temp->value);
-			temp->value = strdup(value);
-			return (1);
-		}
-		temp = temp->next;
-	}
-	return (0);
-}
-
-/**
- * shash_table_set - adds or updates an element in hash table
- * @ht: hash table to sort
- * @key: element's key
- * @value: element's value
- *
- * Return: 1 on success, 0 on failure
- */
-int shash_table_set(shash_table_t *ht, const char *key, const char *value)
-{
-	unsigned long int index;
-	shash_node_t *new;
-
-	if (!ht || !value || !key || *key == '\0')
-		return (0);
-	index = key_index((const unsigned char *)key, ht->size);
-	if (update_key(&(ht->array[index]), key, value))
-		return (1);
-	new = add_node(&(ht->array[index]), key, value);
-
-	if (!ht->shead && !ht->stail)
-	{
-		ht->shead = ht->array[index];
-		ht->stail = ht->array[index];
-	}
-	else
-	{
-		sort_table(ht, new);
-	}
-	return (1);
 }
 
 /**
