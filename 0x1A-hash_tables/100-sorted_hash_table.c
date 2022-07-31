@@ -117,7 +117,6 @@ void sort_table(shash_table_t *ht, shash_node_t *new)
 			current->sprev = new;
 			return;
 		}
-
 		if (current->key[i] < key[i] && (!current->snext ||
 					current->snext->key[i] > key[i]))
 		{
@@ -152,11 +151,10 @@ int shash_table_set(shash_table_t *ht, const char *key, const char *value)
 	if (update_key(&(ht->array[index]), key, value))
 		return (1);
 	new = add_node(&(ht->array[index]), key, value);
-
 	if (!ht->shead && !ht->stail)
 	{
-		ht->shead = ht->array[index];
-		ht->stail = ht->array[index];
+		ht->shead = new;
+		ht->stail = new;
 	}
 	else
 	{
