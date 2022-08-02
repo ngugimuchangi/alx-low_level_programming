@@ -5,21 +5,21 @@
 ### 0x01. C - Variables, if, else, while
 > Loops in C
 ### 0x02. C - Functions, nested loops
-> C functions and nested loops
-> Introduction to header files and function prototypes
+> * C functions and nested loops
+> * Introduction to header files and function prototypes
 ### Debugging
 > Debugging principles
 ### 0x04. C - More functions, more nested loops
 > More on C functions and nested loops
 ### 0x05. C - Pointers, arrays and strings
-> Pointer, arrays and other data structures
-> Strings and how to manipulate them
-> Scope of variables
+> * Pointer, arrays and other data structures
+> * Strings and how to manipulate them
+> * Scope of variables
 ### 0x06. C - More pointers, arrays and strings
 > More on pointers, array, strings, data structure and scope of variables
 ### 0x07. C - Even more pointers, arrays and strings
-> Double pointers (pointers to pointers)
-> Multi-dimensional arrays
+> * Double pointers (pointers to pointers)
+> * Multi-dimensional arrays
 ### 0x08. C - Recursion
 > Recursive functions
 ### 0x09. C - Static libraries
