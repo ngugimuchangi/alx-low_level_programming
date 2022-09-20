@@ -54,3 +54,5 @@
 > Dynamic libraries
 ### 0x1A. C - Hash tables
 > Data structures: hash tables
+### 0x1C. C - Makefiles
+> Automation using makefiles
