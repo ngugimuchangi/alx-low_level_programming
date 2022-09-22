@@ -10,7 +10,7 @@ def island_perimeter(grid):
                   1 represents a land zone
                   Each cell is a square with a side lenght 1
                   Grids are connected horizontally/vertically
-                  Grid is rectangular, width and height don't excedd 100
+                  Grid is rectangular, width and height don't exceed 100
     """
     perimeter = 0
     for row in range(len(grid)):
