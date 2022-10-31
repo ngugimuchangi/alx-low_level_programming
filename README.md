@@ -1,20 +1,17 @@
 # ALX Low Level Programming
 ## Low-level programming & Algorithm Projects
 ### 0x00. C - Hello, World
-
-    * Introduction to C
-    * [0x00-hello_world](0x00-hello_world)
+* Introduction to C
+* [0x00-hello_world](0x00-hello_world)
 
 ### 0x01. C - Variables, if, else, while
-
-    * Loops in C
-    * [0x01-variables_if_else_while](0x01-variables_if_else_while)
+* Loops in C
+* [0x01-variables_if_else_while](0x01-variables_if_else_while)
 
 ### 0x02. C - Functions, nested loops
-
-    * C functions and nested loops
-    * Introduction to header files and function prototypes
-    * [0x02-functions_nested_loops](0x02-functions_nested_loops)
+* C functions and nested loops
+* Introduction to header files and function prototypes
+* [0x02-functions_nested_loops](0x02-functions_nested_loops)
 
 ### Debugging
     * Debugging principles
