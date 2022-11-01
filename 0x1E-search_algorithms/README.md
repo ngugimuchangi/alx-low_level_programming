@@ -22,6 +22,7 @@ Search algorithms
 5. Space complexity (worst case) of a binary search
 	* [5-O](5-O)
 6. Space complexity of this function / algorithm
+	* [6-O](6-O)
 ```
 int 	*	*allocate_map(int n, int m)
 {
@@ -37,7 +38,6 @@ int 	*	*allocate_map(int n, int m)
 ```
 
 
-&emsp;* [6-O](6-O)
 
 
 7. Function that searches for a value in a sorted array of integers using the Jump search algorithm
