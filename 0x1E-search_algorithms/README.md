@@ -1,7 +1,12 @@
 # 0x1E. C - Search Algorithms
 
 ## About
- Search algorithms
+Search algorithms
+* Linear search
+* Binary search
+* Jump search
+* Interpolation search
+* Exponential search
 
 ## Tasks
 0. Function that searches for a value in an array of integers using the Linear search algorithm
