@@ -38,16 +38,14 @@ int recursive_binary(int *array, size_t low, size_t high, int value)
 
 	if (low <= high)
 	{
-		mid = (low + high) / 2;
-		print_array(array, low, high - 1);
-		if (array[mid] >  value)
-			high = mid;
-		else if (array[mid] < value)
-			low = mid + 1;
-		else if (array[low] == value)
-			return (low);
-		else
+		print_array(array, low, high);
+		mid = low + (high  - low) / 2;
+		if (array[mid] == value && (mid == low || array[mid - 1] != value))
 			return (mid);
+		if (array[mid] >=  value)
+			high = mid;
+		if (array[mid] < value)
+			low = mid + 1;
 
 		return (recursive_binary(array, low, high, value));
 	}
@@ -65,6 +63,6 @@ int recursive_binary(int *array, size_t low, size_t high, int value)
 int advanced_binary(int *array, size_t size, int value)
 {
 	if (array)
-		return (recursive_binary(array, 0, size, value));
+		return (recursive_binary(array, 0, size - 1, value));
 	return (-1);
 }
