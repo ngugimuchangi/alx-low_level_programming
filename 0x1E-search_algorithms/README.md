@@ -35,7 +35,9 @@ int 	*	*allocate_map(int n, int m)
 	return (map);
 }
 ```
+
 	* [6-O](6-O)
+
 7. Function that searches for a value in a sorted array of integers using the Jump search algorithm
 	* [100-jump.c](100-jump.c)
 8. Time complexity (average case) of a jump search in an array of size n, using `step = sqrt(n)`
