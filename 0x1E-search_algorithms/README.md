@@ -35,7 +35,7 @@ int 	*	*allocate_map(int n, int m)
 	return (map);
 }
 ```
-<ul><li> &#9;[6-O](6-O)</li></ul>
+<ul><ul><li> [6-O](6-O)</li><ul></ul>
 
 7. Function that searches for a value in a sorted array of integers using the Jump search algorithm
 	* [100-jump.c](100-jump.c)
