@@ -18,7 +18,7 @@ skiplist_t *linear_skip(skiplist_t *list, int value)
 	if (list)
 	{
 		curr = prev = list;
-		while (curr && curr->n <= value)
+		while (curr->next && curr->n < value)
 		{
 			prev = curr;
 			if (curr->express)
@@ -31,7 +31,6 @@ skiplist_t *linear_skip(skiplist_t *list, int value)
 			{
 				while (curr->next)
 					curr = curr->next;
-				break;
 			}
 
 		}
