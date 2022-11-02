@@ -34,6 +34,7 @@ listint_t *jump_list(listint_t *list, size_t size, int value)
 			}
 			curr = curr->next;
 		}
+
 		last_idx = (jump < size - 1) ? jump : size - 1;
 		printf("Value found between indexes [%lu] and [%lu]\n",
 				prev->index, last_idx);
