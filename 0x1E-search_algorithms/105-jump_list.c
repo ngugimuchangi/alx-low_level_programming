@@ -17,7 +17,7 @@ listint_t *jump_list(listint_t *list, size_t size, int value)
 	size_t last_idx, jump, square_root;
 	listint_t *curr = NULL, *prev = NULL;
 
-	if (list)
+	if (list && size > 0)
 	{
 		jump = square_root = (size_t) sqrt(size);
 		prev = curr = list;
