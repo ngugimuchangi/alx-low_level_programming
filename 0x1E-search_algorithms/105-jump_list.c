@@ -17,11 +17,11 @@ listint_t *jump_list(listint_t *list, size_t size, int value)
 	size_t last_idx, jump, square_root;
 	listint_t *curr = NULL, *prev = NULL;
 
-	if (list && size > 0)
+	if (list)
 	{
 		jump = square_root = (size_t) sqrt(size);
 		prev = curr = list;
-		while (jump < size && curr)
+		while (curr)
 		{
 			if (curr->index == jump)
 			{
@@ -32,6 +32,10 @@ listint_t *jump_list(listint_t *list, size_t size, int value)
 				jump += square_root;
 				prev = curr;
 			}
+
+			if (!curr->next)
+				printf("Value checked at index [%lu] = [%d]\n",
+						curr->index, curr->n);
 			curr = curr->next;
 		}
 
